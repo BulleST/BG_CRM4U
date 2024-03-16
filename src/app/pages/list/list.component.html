@@ -1,0 +1,42 @@
+<p-table 
+    #dt 
+    class="table" 
+    [value]="list" 
+    sortField="" 
+    dataKey="id" 
+    styleClass="p-datatable-striped"
+    [tableStyle]="{'min-width': '50rem'}" 
+    [paginator]="true" 
+    [rows]="5" 
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} páginas" 
+    [filterDelay]="0"
+    [globalFilterFields]="['id','horario', 'diaSemana', 'capacidadeAlunos', 'vagasRestantes', 'educadorNome']">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="id" class="id">
+                Id
+            </th>
+            <th pSortableColumn="id" class="id">
+                Agência
+            </th>
+            <th pSortableColumn="id" class="id">
+                Unidade
+            </th>
+            <th pSortableColumn="id" class="id">
+                ApiKey
+            </th>
+            <th pSortableColumn="id" class="id">
+                ApiPassword
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+        <td>{{item.id}}</td>
+        <td>{{item.Agencia}}</td>
+        <td>{{item.Unidade}}</td>
+        <td>{{item.ApiKey}}</td>
+        <td>{{item.ApiPassword}}</td>
+    </ng-template>
+</p-table>
+<router-outlet></router-outlet>
