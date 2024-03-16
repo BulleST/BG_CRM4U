@@ -6,7 +6,7 @@ const list = () => import ('./pages/list/list.module').then(res => res.ListModul
 
 const routes: Routes = [
     {
-      path: 'list',
+      path: '',
       loadChildren: list
     },]
 

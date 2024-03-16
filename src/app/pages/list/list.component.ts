@@ -4,6 +4,7 @@ import { Table } from 'primeng/table';
 import { lastValueFrom } from 'rxjs';
 import { Cadastro } from 'src/app/model/list.model';
 
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
