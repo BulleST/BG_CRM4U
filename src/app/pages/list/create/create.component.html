@@ -1,0 +1,18 @@
+<div class="modal"
+    [class.modal--show]="open">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h5 class="modal-title">Cadastrar</h5>
+            <!-- Fechar modal-->
+            <a 
+                type="button" 
+                class="btn-close" 
+                (click)="close()">       
+            </a>
+        </div>
+        <div class="modal-body">
+            <form #form="ngForm"> </form>
+        </div>
+    </div>
+
+</div>
