@@ -11,22 +11,22 @@
     [showCurrentPageReport]="true"
     currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} páginas" 
     [filterDelay]="0"
-    [globalFilterFields]="['id','horario', 'diaSemana', 'capacidadeAlunos', 'vagasRestantes', 'educadorNome']">
+    [globalFilterFields]="['id','Agencia', 'Unidade', 'ApiKey', 'ApiPassword']">
     <ng-template pTemplate="header">
         <tr>
             <th pSortableColumn="id" class="id">
                 Id
             </th>
-            <th pSortableColumn="id" class="id">
+            <th pSortableColumn="Agencia" class="Agencia">
                 Agência
             </th>
-            <th pSortableColumn="id" class="id">
+            <th pSortableColumn="Unidade" class="Unidade">
                 Unidade
             </th>
-            <th pSortableColumn="id" class="id">
+            <th pSortableColumn="ApiKey" class="ApiKey">
                 ApiKey
             </th>
-            <th pSortableColumn="id" class="id">
+            <th pSortableColumn="ApiPassword" class="ApiPassword">
                 ApiPassword
             </th>
         </tr>

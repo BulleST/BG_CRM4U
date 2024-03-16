@@ -1,10 +1,11 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
 import { TagModule } from 'primeng/tag';
-import { TableModule } from 'primeng/table';
 import { ListComponent } from "./list.component";
 import { ListRoutingModule } from "./list.routing";
+import { RouterModule } from "@angular/router";
 
 
 @NgModule ({
@@ -14,11 +15,11 @@ import { ListRoutingModule } from "./list.routing";
 
     imports:[
         CommonModule,
-        ListRoutingModule,
         TableModule,
         TabViewModule,
-        TagModule
-   
+        TagModule,
+        ListRoutingModule,
+        RouterModule,
     ]
 })
 
