@@ -6,6 +6,9 @@ import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
 import { TagModule } from 'primeng/tag';
 import { ListComponent } from "./list.component";
+import { ToggleButtonModule } from 'primeng/togglebutton';
+import { ToolbarModule } from 'primeng/toolbar';
+import { ButtonModule } from 'primeng/button';
 
 
 
@@ -21,6 +24,9 @@ import { ListComponent } from "./list.component";
         TableModule,
         TabViewModule,
         TagModule,
+        ToggleButtonModule,
+        ToolbarModule,
+        ButtonModule
       
         
       

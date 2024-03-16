@@ -20,7 +20,7 @@ export class ListComponent {
 
     this.listService.list.subscribe((data) => {
       this.list = Object.assign([], data);
-      console.log('perfis', data)
+     
     })
     lastValueFrom(listService.getList()).then
   }

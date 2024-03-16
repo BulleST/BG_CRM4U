@@ -1,42 +1,68 @@
-<p-table 
-    #dt 
-    class="table" 
-    [value]="list" 
-    sortField="" 
-    dataKey="id" 
-    styleClass="p-datatable-striped"
-    [tableStyle]="{'min-width': '50rem'}" 
-    [paginator]="true" 
-    [rows]="5" 
-    [showCurrentPageReport]="true"
-    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} páginas" 
-    [filterDelay]="0"
-    [globalFilterFields]="['id','Agencia', 'Unidade', 'ApiKey', 'ApiPassword']">
-    <ng-template pTemplate="header">
-        <tr>
-            <th pSortableColumn="id" class="id">
-                Id
-            </th>
-            <th pSortableColumn="Agencia" class="Agencia">
-                Agência
-            </th>
-            <th pSortableColumn="Unidade" class="Unidade">
-                Unidade
-            </th>
-            <th pSortableColumn="ApiKey" class="ApiKey">
-                ApiKey
-            </th>
-            <th pSortableColumn="ApiPassword" class="ApiPassword">
-                ApiPassword
-            </th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-item>
-        <td>{{item.id}}</td>
-        <td>{{item.Agencia}}</td>
-        <td>{{item.Unidade}}</td>
-        <td>{{item.ApiKey}}</td>
-        <td>{{item.ApiPassword}}</td>
-    </ng-template>
-</p-table>
+
+<p-tabView>
+    <p-tabPanel header="CRM4U">
+        <div class="card table-responsive">
+            <p-table 
+            #dt 
+            class="table" 
+            [value]="list" 
+            sortField="" 
+            dataKey="id" 
+            styleClass="p-datatable-striped"
+            [tableStyle]="{'min-width': '50rem'}" 
+            [paginator]="true" 
+            [rows]="5" 
+            [showCurrentPageReport]="true"
+            currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} páginas" 
+            [filterDelay]="0"
+            [globalFilterFields]="['id','Agencia', 'Unidade', 'ApiKey', 'ApiPassword']">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="id" class="id">
+                        Id
+                    </th>
+                    <th pSortableColumn="Agencia" class="Agencia">
+                        Agência
+                    </th>
+                    <th pSortableColumn="Unidade" class="Unidade">
+                        Unidade
+                    </th>
+                    <th pSortableColumn="ApiKey" class="ApiKey">
+                        ApiKey
+                    </th>
+                    <th pSortableColumn="ApiPassword" class="ApiPassword">
+                        ApiPassword
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+              <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.Agencia}}</td> 
+                <td>{{item.Unidade}}</td>
+                <td>{{item.ApiKey}}</td>
+                <td>{{item.ApiPassword}}</td>
+              </tr>
+            </ng-template>
+          
+        </p-table>
+        <p-toolbar styleClass="mb-4 gap-2">
+           
+            <ng-template pTemplate="end">
+            
+                    <button label="Copiar chave" pButton class="mr-1"></button>
+                    <button label="Cadastrar" pButton  class="mr-1"></button>
+                    <button label="Excluir" pButton class="mr-2"></button>
+            
+                
+            </ng-template>
+            
+        </p-toolbar>
+        </div>
+    </p-tabPanel>
+</p-tabView>
+
+
+
+
 <router-outlet></router-outlet>

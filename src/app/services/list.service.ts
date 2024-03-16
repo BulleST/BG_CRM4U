@@ -10,7 +10,7 @@ import { BehaviorSubject, Observable, of, tap } from "rxjs";
 
   export class ListService{
     url = environment.url;
-    list: BehaviorSubject<Agencia[]> = new BehaviorSubject<Agencia[]>([])
+    list: BehaviorSubject<Cadastro[]> = new BehaviorSubject<Cadastro[]>([])
 
 
     constructor(
@@ -18,7 +18,7 @@ import { BehaviorSubject, Observable, of, tap } from "rxjs";
       ) { }
 
     getList() {
-        return this.httpClient.get<Agencia[]>(`http://crm4u.azurewebsites.net/api/API`)
+        return this.httpClient.get<Cadastro[]>(`http://crm4u.azurewebsites.net/api/API`)
           .pipe(tap({
             next: res => {
               this.list.next(res)
