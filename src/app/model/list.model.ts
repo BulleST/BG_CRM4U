@@ -8,7 +8,7 @@
         ApiPassword: string = '';
      }
      
-     export class Agencia{
+     export class ObjectIdNome{
         id: number = 0;
         Nome: string = '';
      }

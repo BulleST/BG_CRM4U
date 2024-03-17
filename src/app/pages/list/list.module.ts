@@ -9,12 +9,16 @@ import { ListComponent } from "./list.component";
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
+import { CreateComponent } from "./create/create.component";
+import { FormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 
 @NgModule ({
     declarations: [ 
         ListComponent,
+        CreateComponent
     ],
 
     imports:[
@@ -26,7 +30,9 @@ import { ButtonModule } from 'primeng/button';
         TagModule,
         ToggleButtonModule,
         ToolbarModule,
-        ButtonModule
+        ButtonModule,
+        FormsModule, 
+        DropdownModule
       
         
       
