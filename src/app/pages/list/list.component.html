@@ -33,6 +33,8 @@
                     <th pSortableColumn="ApiPassword" class="ApiPassword">
                         ApiPassword
                     </th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-item>
@@ -42,19 +44,19 @@
                 <td>{{item.Unidade}}</td>
                 <td>{{item.ApiKey}}</td>
                 <td>{{item.ApiPassword}}</td>
+                <td>
+                    <button label="Copiar chave" pButton class="btn-clear"></button>
+                </td>
+                <td>
+                    <button label="Excluir" [routerLink]="['excluir', item.id]" pButton class="btn-clear"></button>
+                </td>
               </tr>
             </ng-template>
-          
         </p-table>
         <p-toolbar styleClass="mb-4 gap-2">
            
             <ng-template pTemplate="end">
-            
-                    <button label="Copiar chave" pButton class="mr-1"></button>
-                    <button label="Cadastrar" [routerLink]="['cadastrar']" pButton  class="mr-1"></button>
-                    <button label="Excluir" pButton class="mr-2"></button>
-            
-                
+                    <button label="Cadastrar" [routerLink]="['cadastrar']" pButton  class="btn-clear"></button>
             </ng-template>
             
         </p-toolbar>

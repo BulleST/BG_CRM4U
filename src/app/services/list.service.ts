@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Cadastro, ObjectIdNome } from "../model/list.model";
 import { environment } from "../environment/environment";
 import { BehaviorSubject, Observable, of, tap } from "rxjs";
+import { Response } from "../model/response.model";
 
 @Injectable({
   providedIn: 'root'

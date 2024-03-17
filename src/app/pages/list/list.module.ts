@@ -12,13 +12,15 @@ import { ButtonModule } from 'primeng/button';
 import { CreateComponent } from "./create/create.component";
 import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
-
+import { Toast, ToastrModule } from "ngx-toastr";
+import { DeleteComponent } from "./delete/delete.component";
 
 
 @NgModule ({
     declarations: [ 
         ListComponent,
-        CreateComponent
+        CreateComponent,
+         DeleteComponent
     ],
 
     imports:[
@@ -32,7 +34,8 @@ import { DropdownModule } from 'primeng/dropdown';
         ToolbarModule,
         ButtonModule,
         FormsModule, 
-        DropdownModule
+        DropdownModule,
+        ToastrModule
       
         
       

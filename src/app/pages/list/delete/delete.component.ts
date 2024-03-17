@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { ObjectIdNome, Cadastro } from 'src/app/model/list.model';
@@ -7,11 +8,11 @@ import { ToastrService } from "ngx-toastr";
 
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrl: './create.component.scss'
+  selector: 'app-delete',
+  templateUrl: './delete.component.html',
+  styleUrl: './delete.component.scss'
 })
-export class CreateComponent {
+export class DeleteComponent {
   open = true;
   cadastro: Cadastro = new Cadastro;
   selectedAgencia: ObjectIdNome = new ObjectIdNome;
