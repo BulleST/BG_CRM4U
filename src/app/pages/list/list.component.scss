@@ -1,9 +1,19 @@
 @import url('../../../assets/css/button.css');
 
+:host ::ng-deep .btn-cancel{
+    font-size: 11pt;
+}
+:host ::ng-deep .btn-clear{
+    font-size: 11pt;
+}
 
 :host ::ng-deep .p-toolbar {
     display: flex;
     align-items: center;
     justify-content: end;
     flex-wrap: wrap;
+}
+
+:host ::ng-deep .table td{
+    padding: 8px;
 }

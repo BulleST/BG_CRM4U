@@ -1,0 +1,68 @@
+
+<div class="modal" tabindex="-1"
+    [class.modal--show]="open">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Chave Cadastrada com sucesso!</h5>
+                <!-- Fechar modal-->
+                <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+            </div>
+            <div class="modal-body">
+                <form #form="ngForm">
+                    <div class="column">
+                        <div class="d-flex flex-column mb-2 col-sm-6 col-12"> <!-- Agência -->
+                          <label for="ApiKey" class="mb-1 ms-1">Api Key: <span class="text-danger">*</span></label>
+                          <input 
+                          type="text" 
+                          class="form-control" 
+                          id="ApiKey" 
+                          name="ApiKey"
+                          #ApiKey="ngModel" 
+                          [(ngModel)]="object.ApiKey"
+                          readonly>
+                          </div>
+                          <div class="d-flex flex-column mb-2 col-sm-6 col-12"> <!-- Agência -->
+                            <label for="ApiPassword" class="mb-1 ms-1">Api Password: <span class="text-danger">*</span></label>
+                            <input 
+                            type="text" 
+                            class="form-control" 
+                            id="ApiPassword" 
+                            name="ApiPassword"
+                            #ApiPassword="ngModel" 
+                            [(ngModel)]="object.ApiPassword"
+                            readonly>
+                            </div>
+                      </div>
+                </form>
+                <div class="modal-footer">
+                   
+                    <button 
+                    icon="pi pi-copy" 
+                    pButton    
+                    class="btn-cancel"  
+                    (click)="CopyToClipboard(object.ApiKey, object.ApiPassword)" 
+                    [disabled]="loading">
+                    </button>
+                    <button 
+                    label="Salvar" 
+                    pButton    
+                    class="btn-clear"  
+                    (click)="send()" 
+                    [disabled]="loading">
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+   
+    </div>
+   
+    
+         
+              
+          
+     
+
+
+

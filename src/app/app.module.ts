@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastModule } from 'primeng/toast';
 import { ToastrModule } from 'ngx-toastr';
 
 
@@ -18,7 +17,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    ToastModule,
+   
 
     ToastrModule.forRoot({
       preventDuplicates: true,

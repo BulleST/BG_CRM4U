@@ -1,7 +1,7 @@
      
      
-     export class Cadastro{
-        id: number = 0;
+     export class ListCadastro{
+        Id: number = 0;
         Agencia: string = '';
         Unidade: string = '';
         ApiKey: string = '';
@@ -9,7 +9,14 @@
      }
      
      export class ObjectIdNome{
-        id: number = 0;
+        Id: number = 0;
         Nome: string = '';
      }
+
+     export class Cadastro{
+      Agencia_Id: number = 0;
+      Unidade_Id: number = 0;
+     }
+
+
   

@@ -12,15 +12,18 @@ import { ButtonModule } from 'primeng/button';
 import { CreateComponent } from "./create/create.component";
 import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
-import { Toast, ToastrModule } from "ngx-toastr";
+import { ToastrModule } from "ngx-toastr";
 import { DeleteComponent } from "./delete/delete.component";
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { CreateConfirmComponent } from "./create-confirm/create-confirm.component";
 
 
 @NgModule ({
     declarations: [ 
         ListComponent,
         CreateComponent,
-         DeleteComponent
+        DeleteComponent,
+        CreateConfirmComponent
     ],
 
     imports:[
@@ -35,7 +38,8 @@ import { DeleteComponent } from "./delete/delete.component";
         ButtonModule,
         FormsModule, 
         DropdownModule,
-        ToastrModule
+        ToastrModule,
+        ProgressSpinnerModule
       
         
       

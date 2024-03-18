@@ -1,7 +1,7 @@
 
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Cadastro, ObjectIdNome } from "../model/list.model";
+import { Cadastro, ListCadastro, ObjectIdNome } from "../model/list.model";
 import { environment } from "../environment/environment";
 import { BehaviorSubject, Observable, of, tap } from "rxjs";
 import { Response } from "../model/response.model";
@@ -12,7 +12,7 @@ import { Response } from "../model/response.model";
 
 export class ListService {
   url = environment.url;
-  list: BehaviorSubject<Cadastro[]> = new BehaviorSubject<Cadastro[]>([])
+  list: BehaviorSubject<ListCadastro[]> = new BehaviorSubject<ListCadastro[]>([])
   listAgencias: BehaviorSubject<ObjectIdNome[]> = new BehaviorSubject<ObjectIdNome[]>([])
   listUnidades: BehaviorSubject<ObjectIdNome[]> = new BehaviorSubject<ObjectIdNome[]>([])
 
@@ -22,7 +22,7 @@ export class ListService {
   ) { }
 
   getList() {
-    return this.httpClient.get<Cadastro[]>(`http://crm4u.azurewebsites.net/api/API`)
+    return this.httpClient.get<ListCadastro[]>(`http://crm4u.azurewebsites.net/api/API`)
       .pipe(tap({
         next: res => {
           this.list.next(res)
@@ -48,13 +48,17 @@ export class ListService {
       }))
   }
 
+  get(id: number) {
+    return this.httpClient.get<ListCadastro>(`http://crm4u.azurewebsites.net/api/API/${id}`)
+  }
   
 
   put(model: Cadastro) {
+    console.log(model)
     return this.httpClient.put<Response>(`http://crm4u.azurewebsites.net/api/API/`, model)
   }
 
   delete(id: number) {
-    return this.httpClient.delete<Response>(`${this.url}/Aula/${id}`)
+    return this.httpClient.delete<Response>(`http://crm4u.azurewebsites.net/api/API/${id}`)
   }
 }

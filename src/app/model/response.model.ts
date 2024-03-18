@@ -1,5 +1,7 @@
 export class Response{
-    message: string = '';
-    object?: string;
-    success: boolean = false;
+    Message: string = '';
+    Id: number = 0;
+    
 }
+
+

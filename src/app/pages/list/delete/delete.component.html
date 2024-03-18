@@ -9,46 +9,24 @@
                 <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
             </div>
             <div class="modal-body">
-                <form #form="ngForm">
-                    <div class="row">
-                        <div class="d-flex flex-column mb-2 col-sm-6 col-12"> <!-- Agência -->
-                          <label for="Agencia" class="mb-1 ms-1">Agência: <span class="text-danger">*</span></label>
-                          <p-dropdown
-                            [options]="listAgencia"
-                            placeholder="Selecione uma Agência"
-                            #Agencia="ngModel"
-                            [(ngModel)]="cadastro.Agencia"
-                            name="Agencia"
-                            optionValue="Nome"
-                            optionLabel="Nome">
-                          </p-dropdown>
-                        </div>
-                        <div class="d-flex flex-column mb-2 col-sm-6 col-12"> <!-- Unidade -->
-                            <label for="Unidade" class="mb-1 ms-1">Unidade: <span class="text-danger">*</span></label>
-                            <p-dropdown
-                              [options]="listUnidade"
-                              placeholder="Selecione uma Unidade"
-                              #Agencia="ngModel"
-                              [(ngModel)]="cadastro.Unidade"
-                              name="Unidade"
-                              optionValue="Nome"
-                              optionLabel="Nome">  
-                            </p-dropdown>
-                          </div>
-                      </div>
-                </form>
+                <div class="modal-body">
+                    <p>Tem certeza que deseja excluir esse cadastro?<br>
+                      Essa ação é irreversível e você não poderá recuperar esses dados!</p>
+                    <p class="text-danger">{{erro}}</p>
+                </div>
+                
                 <div class="modal-footer">
                     <button 
-                    label="Salvar" 
+                    label="Excluir" 
                     pButton    
                     class="btn-clear"  
-                    (click)="send()" 
+                    (click)="exclude() " 
                     [disabled]="loading">
                 </button>
                     <button 
                         label="Cancelar" 
                         pButton    
-                        class="btn-clear"  
+                        class="btn-cancel"  
                         (click)="close()" 
                         [disabled]="loading">
                     </button>
@@ -56,4 +34,10 @@
             </div>
         </div>
    
+    </div>
+    <div class="progress-spinner" *ngIf="loading">
+        <p-progressSpinner styleClass="color-spinner" strokeWidth="8">
+    
+        </p-progressSpinner>
+    
     </div>

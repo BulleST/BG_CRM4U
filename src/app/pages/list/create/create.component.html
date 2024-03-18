@@ -1,5 +1,4 @@
-<div class="modal" tabindex="-1"
-    [class.modal--show]="open">
+<div class="modal" tabindex="-1" [class.modal--show]="open">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,58 +8,38 @@
             </div>
             <div class="modal-body">
                 <form #form="ngForm">
-                    <div class="row">
+                    <div class="column">
                         <div class="d-flex flex-column mb-2 col-sm-6 col-12"> <!-- Agência -->
-                          <label for="Agencia" class="mb-1 ms-1">Agência: <span class="text-danger">*</span></label>
-                          <p-dropdown
-                            [options]="listAgencia"
-                            placeholder="Selecione uma Agência"
-                            #Agencia="ngModel"
-                            [(ngModel)]="cadastro.Agencia"
-                            name="Agencia"
-                            optionValue="Nome"
-                            optionLabel="Nome">
-                          </p-dropdown>
-                        </div>
-                        <div class="d-flex flex-column mb-2 col-sm-6 col-12"> <!-- Unidade -->
-                            <label for="Unidade" class="mb-1 ms-1">Unidade: <span class="text-danger">*</span></label>
-                            <p-dropdown
-                              [options]="listUnidade"
-                              placeholder="Selecione uma Unidade"
-                              #Agencia="ngModel"
-                              [(ngModel)]="cadastro.Unidade"
-                              name="Unidade"
-                              optionValue="Nome"
-                              optionLabel="Nome">  
+                            <label for="Agencia" class="mb-1 ms-1">Agência: <span class="text-danger">*</span></label>
+                            <p-dropdown [options]="listAgencia" [style]="{'width':'210%'}"
+                                placeholder="Selecione uma Agência" #Agencia="ngModel" [(ngModel)]="cadastro.Agencia_Id"
+                                name="Agencia" optionValue="Id" optionLabel="Nome" [filter]="true" [filterBy]="'Nome'">
                             </p-dropdown>
-                          </div>
-                      </div>
+                        </div>
+                        <div class="d-flex flex-column mb-2 col-sm-8 col-12"> <!-- Unidade -->
+                            <label for="Unidade" class="mb-1 ms-1">Unidade: <span class="text-danger">*</span></label>
+                            <p-dropdown [options]="listUnidade" [style]="{'width':'153%'}"
+                                placeholder="Selecione uma Unidade" #Agencia="ngModel" [(ngModel)]="cadastro.Unidade_Id"
+                                name="Unidade" optionValue="Id" optionLabel="Nome" [filter]="true" [filterBy]="'Nome'">
+                            </p-dropdown>
+                        </div>
+                    </div>
                 </form>
                 <div class="modal-footer">
-                    <button 
-                    label="Salvar" 
-                    pButton    
-                    class="btn-clear"  
-                    (click)="send()" 
-                    [disabled]="loading">
-                </button>
-                    <button 
-                        label="Cancelar" 
-                        pButton    
-                        class="btn-clear"  
-                        (click)="close()" 
-                        [disabled]="loading">
+                    <button label="Salvar" pButton class="btn-clear" (click)="send() " [disabled]="loading">
+                    </button>
+                    <button label="Cancelar" pButton class="btn-cancel" (click)="close()" [disabled]="loading">
                     </button>
                 </div>
             </div>
         </div>
-   
+
     </div>
-    
-            
-              
-          
-     
+</div>
+    <div class="progress-spinner" *ngIf="loading">
+        <p-progressSpinner styleClass="color-spinner" strokeWidth="8">
 
+        </p-progressSpinner>
 
-
+    </div>
+    <router-outlet></router-outlet>

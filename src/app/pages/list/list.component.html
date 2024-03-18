@@ -16,6 +16,11 @@
             currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} páginas" 
             [filterDelay]="0"
             [globalFilterFields]="['id','Agencia', 'Unidade', 'ApiKey', 'ApiPassword']">
+            <ng-template pTemplate="caption">
+                <div>
+                    <button label="Cadastrar" [routerLink]="['cadastrar']" pButton  class="btn-clear"></button>
+                </div>
+             </ng-template>
             <ng-template pTemplate="header">
                 <tr>
                     <th pSortableColumn="id" class="id">
@@ -45,21 +50,14 @@
                 <td>{{item.ApiKey}}</td>
                 <td>{{item.ApiPassword}}</td>
                 <td>
-                    <button label="Copiar chave" pButton class="btn-clear"></button>
+                    <button  label="Copiar Chave" icon="pi pi-copy"  pButton class="btn-cancel" (click)="CopyToClipboard(item.ApiKey)" ></button>
                 </td>
                 <td>
-                    <button label="Excluir" [routerLink]="['excluir', item.id]" pButton class="btn-clear"></button>
+                    <button label="Excluir" [routerLink]="['excluir',item.Id]" pButton class="btn-clear"></button>
                 </td>
               </tr>
             </ng-template>
         </p-table>
-        <p-toolbar styleClass="mb-4 gap-2">
-           
-            <ng-template pTemplate="end">
-                    <button label="Cadastrar" [routerLink]="['cadastrar']" pButton  class="btn-clear"></button>
-            </ng-template>
-            
-        </p-toolbar>
         </div>
     </p-tabPanel>
 </p-tabView>
