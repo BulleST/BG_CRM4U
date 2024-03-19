@@ -99,7 +99,7 @@
               "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
-
+              "../node_modules/lodash/lodash.min.js"
             ]
           }
         }

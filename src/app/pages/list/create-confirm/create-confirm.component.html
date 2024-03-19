@@ -17,6 +17,7 @@
                           type="text" 
                           class="form-control" 
                           id="ApiKey" 
+                          [style]="{'width':'215%'}"
                           name="ApiKey"
                           #ApiKey="ngModel" 
                           [(ngModel)]="object.ApiKey"
@@ -26,6 +27,7 @@
                             <label for="ApiPassword" class="mb-1 ms-1">Api Password: <span class="text-danger">*</span></label>
                             <input 
                             type="text" 
+                            [style]="{'width':'215%'}"
                             class="form-control" 
                             id="ApiPassword" 
                             name="ApiPassword"
@@ -39,18 +41,13 @@
                    
                     <button 
                     icon="pi pi-copy" 
+                    label="Copiar Cadastro"
                     pButton    
                     class="btn-cancel"  
-                    (click)="CopyToClipboard(object.ApiKey, object.ApiPassword)" 
+                    (click)="CopyToClipboard()" 
                     [disabled]="loading">
                     </button>
-                    <button 
-                    label="Salvar" 
-                    pButton    
-                    class="btn-clear"  
-                    (click)="send()" 
-                    [disabled]="loading">
-                    </button>
+                    
                     
                 </div>
             </div>

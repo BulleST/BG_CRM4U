@@ -28,27 +28,28 @@ export class CreateConfirmComponent {
       this.activatedRoute.params.subscribe(res =>{
        
         if(res['id']){
+          console.log('Estamos criando create-confirm')
           this.object.Id = res['id'];
-          this.listService.list.subscribe(lista => {
-            if (lista.length) {
-              var obj = lista.find(x => x.Id == this.object.Id);
-              console.log('obj', obj);
-              if(obj != null){
-                this.object = obj
+          // Função para atualizar a lista e cadastrar novo objeto
+            lastValueFrom(this.listService.getList()).then (lista => {
+              if (lista.length == 0) {
+                this.toastr.error('Operação Inválida');
+                return
               }
               else {
-                this.toastr.error('Operação Inválida')  
+                console.log(lista.length)
+                var obj = lista.find(x => x.Id == this.object.Id);
+                if (obj != null) {
+                  this.object = obj
+                }
+                else {
+                  this.toastr.error('Operação Inválida');
+                }
               }
-             
-
-            }
-          })
+            });
+           
           
-          // lastValueFrom(this.listService.get(this.object.Id)).then(res => {
-          //     this.object = res;
-          //     console.log(res)
-          // })
-       }
+        }
       }
    )}
 
@@ -61,49 +62,14 @@ export class CreateConfirmComponent {
   return;
 }
 
-send() {
-  this.loading = true;
-  console.log(this.object)
-  lastValueFrom(this.listService.put(this.cadastro)).then(res => {
-    console.log(res)
-    // Cadastro concluído com Sucesso
-    if (!res.Message) {
-      this.toastr.success('Operação concluída com sucesso');
-      lastValueFrom(this.listService.getList());
-      this.close();
-    }
-    // Mensagem de erro
-    else {
-      this.loading = false;
-      this.erro = res.Message;
-      this.toastr.error(res.Message)
-    }
-  })
-
-    .catch(res => {
-      this.loading = false;
-      this.erro = res.error.Message;
-      this.toastr.error(res.error.Message)
-    })
-}
-
   //Função para copiar o valor armazenado
-  CopyToClipboard(ApiKey : string, ApiPassword: string) {
+  CopyToClipboard() {
     var result = '';
-    result += 'Apikey: ' + ApiKey + '\n'
-    result += 'ApiPassword: ' + ApiPassword
+    result += 'Agência: ' + this.object.Agencia + '\n'
+    result += 'Unidade: ' + this.object.Unidade + '\n'
+    result += 'Api Key: ' + this.object.ApiKey + '\n'
+    result += 'Api Password: ' + this.object.ApiPassword 
     navigator.clipboard.writeText(result);
     this.toastr.success('Chave copiada para área de transferência!');
-    // const textArea = document.createElement('textarea');
-    // textArea.style.position = 'fixed';
-    // textArea.style.left = '0';
-    // textArea.style.top = '0';
-    // textArea.style.opacity = '0';
-    // textArea.value = value;
-    // document.body.appendChild(textArea);
-    // textArea.focus();
-    // textArea.select();
-    // document.execCommand('copy');
-    // document.body.removeChild(textArea);
   }
 }

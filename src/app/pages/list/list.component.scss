@@ -16,7 +16,7 @@
 }
 
 :host ::ng-deep .table td,th{
-    padding: 12px 30px;
+    padding: 12px 24px;
 }
 
 :host ::ng-deep .p-datatable-header{
@@ -26,3 +26,4 @@
 :host ::ng-deep .p-datatable-header .button-holder{
  background-color: inherit;
 }
+

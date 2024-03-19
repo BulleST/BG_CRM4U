@@ -2,8 +2,10 @@ import { ListService } from './../../services/list.service';
 import { Component, ViewChild} from '@angular/core';
 import { Table } from 'primeng/table';
 import { lastValueFrom } from 'rxjs';
-import { Cadastro, ListCadastro } from 'src/app/model/list.model';
+import { ListCadastro } from 'src/app/model/list.model';
 import { ToastrService } from "ngx-toastr";
+import * as FileSaver from 'file-saver';
+import * as xlsx from "xlsx";
 
 
 @Component({
@@ -36,27 +38,38 @@ export class ListComponent {
     })
     lastValueFrom(listService.getList()).then
   }
-  //Função para copiar o valor armazenado
-  CopyToClipboard(value: string) {
-    navigator.clipboard.writeText(value);
-    this.toastr.success('Chave copiada para área de transferência!');
-    // const textArea = document.createElement('textarea');
-    // textArea.style.position = 'fixed';
-    // textArea.style.left = '0';
-    // textArea.style.top = '0';
-    // textArea.style.opacity = '0';
-    // textArea.value = value;
-    // document.body.appendChild(textArea);
-    // textArea.focus();
-    // textArea.select();
-    // document.execCommand('copy');
-    // document.body.removeChild(textArea);
-  }
+    //Função para copiar o valor armazenado
+    CopyToClipboard(object: ListCadastro) {
+      var result = '';
+      result += 'Agência: ' + object.Agencia + '\n'
+      result += 'Unidade: ' + object.Unidade + '\n'
+      result += 'Api Key: ' + object.ApiKey + '\n'
+      result += 'Api Password: ' + object.ApiPassword 
+      navigator.clipboard.writeText(result);
+      this.toastr.success('Chave copiada para área de transferência!');
+    }
 
     // Função para filtrar a tabela a partir do input
     applyFilterGlobal(event: any, filterType: string) {
       this.dt.filterGlobal((event.target as HTMLInputElement).value, filterType);
     }
 
+    exportExcel() {
+      import("xlsx").then(xlsx => {
+          const worksheet = xlsx.utils.json_to_sheet(this.list);
+          const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+          const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
+          this.saveAsExcelFile(excelBuffer, "CRM4U");
+      });
+  }
+
+  saveAsExcelFile(buffer: any, fileName: string): void {
+    let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+    let EXCEL_EXTENSION = '.xlsx';
+    const data: Blob = new Blob([buffer], {
+        type: EXCEL_TYPE
+    });
+    FileSaver.saveAs(data, fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION);
+}
     
 }

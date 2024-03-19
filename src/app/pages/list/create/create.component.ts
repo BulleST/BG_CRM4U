@@ -68,7 +68,6 @@ export class CreateComponent {
 
       .catch(res => {
         this.loading = false;
-        this.erro = res.error.Message;
         this.toastr.error(res.error.Message)
       })
   }

@@ -57,7 +57,8 @@ export class DeleteComponent {
 				this.loading = false;
 			}).catch(res => {
 				this.erro = res;
-				console.error("console catch" + res);
+				console.error(res);
+				this.toastr.error('Acesso Negado')
 			})
 			.finally(() => {
 				this.loading = false;

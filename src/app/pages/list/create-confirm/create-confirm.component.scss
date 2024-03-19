@@ -1,2 +1,6 @@
 @import url('../../../../assets/css/modal.css');
 @import url('../../../../assets/css/button.css');
+
+:host ::ng-deep .modal-dialog{
+    max-width: 600px;
+}

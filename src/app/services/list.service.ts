@@ -1,6 +1,6 @@
 
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Cadastro, ListCadastro, ObjectIdNome } from "../model/list.model";
 import { environment } from "../environment/environment";
 import { BehaviorSubject, Observable, of, tap } from "rxjs";
@@ -22,7 +22,7 @@ export class ListService {
   ) { }
 
   getList() {
-    return this.httpClient.get<ListCadastro[]>(`http://crm4u.azurewebsites.net/api/API`)
+    return this.httpClient.get<ListCadastro[]>(`http://crm4u.azurewebsites.net/api/API`, {headers: new HttpHeaders().set('AccessKey', 'Hn(8D3s5FmqudUnWd!P9bQ%UgM)m9F)&amp;WD9f^yP)W')})
       .pipe(tap({
         next: res => {
           this.list.next(res)
@@ -31,7 +31,7 @@ export class ListService {
   }
 
   getListAgencia(){
-    return this.httpClient.get<ObjectIdNome[]>(`http://crm4u.azurewebsites.net/api/API?param=agencias`)
+    return this.httpClient.get<ObjectIdNome[]>(`http://crm4u.azurewebsites.net/api/API?param=agencias`, {headers: new HttpHeaders().set('AccessKey', 'Hn(8D3s5FmqudUnWd!P9bQ%UgM)m9F)&amp;WD9f^yP)W')})
       .pipe(tap({
         next: res => {
           this.listAgencias.next(res)
@@ -40,7 +40,7 @@ export class ListService {
   }
 
   getListUnidade(){
-    return this.httpClient.get<ObjectIdNome[]>(`http://crm4u.azurewebsites.net/api/API?param=unidades`)
+    return this.httpClient.get<ObjectIdNome[]>(`http://crm4u.azurewebsites.net/api/API?param=unidades`, {headers: new HttpHeaders().set('AccessKey', 'Hn(8D3s5FmqudUnWd!P9bQ%UgM)m9F)&amp;WD9f^yP)W')})
       .pipe(tap({
         next: res => {
           this.listUnidades.next(res)
@@ -49,16 +49,17 @@ export class ListService {
   }
 
   get(id: number) {
-    return this.httpClient.get<ListCadastro>(`http://crm4u.azurewebsites.net/api/API/${id}`)
+    return this.httpClient.get<ListCadastro>(`http://crm4u.azurewebsites.net/api/API/${id}`, {headers: new HttpHeaders().set('AccessKey', 'Hn(8D3s5FmqudUnWd!P9bQ%UgM)m9F)&amp;WD9f^yP)W')})
   }
   
 
   put(model: Cadastro) {
     console.log(model)
-    return this.httpClient.put<Response>(`http://crm4u.azurewebsites.net/api/API/`, model)
+    return this.httpClient.put<Response>(`http://crm4u.azurewebsites.net/api/API/`, model, {headers: new HttpHeaders().set('AccessKey', 'Hn(8D3s5FmqudUnWd!P9bQ%UgM)m9F)&amp;WD9f^yP)W')})
   }
 
   delete(id: number) {
-    return this.httpClient.delete<Response>(`http://crm4u.azurewebsites.net/api/API/${id}`)
+    return this.httpClient.delete<Response>(`http://crm4u.azurewebsites.net/api/API/${id}`, {headers: new HttpHeaders().set('AccessKey', 'Hn(8D3s5FmqudUnWd!P9bQ%UgM)m9F)&amp;WD9f^yP)W')})
+   
   }
 }

@@ -9,10 +9,14 @@
                 <input pinputtext type="text" placeholder="Search" class="p-inputtext p-component p-element w-full"
                     style="border-radius: 2rem;" (input)="applyFilterGlobal($event, 'contains')">
             </span>
-            <button pbutton pripple icon="pi pi-upload" (click)="dt.exportCSV()" class=" p-element p-ripple rounded-circle mx-3 p-button p-component p-button-icon-only">
+            <button pbutton pripple icon="pi pi-upload" (click)="exportExcel()" pTooltip="XLS" class=" p-element p-ripple rounded-circle mx-3 p-button p-component p-button-icon-only">
                 <span class="p-button-icon pi pi-upload" aria-hidden="true"></span>
                 <span class="p-ink" aria-hidden="true" role="presentation"></span>
             </button>
+            <!-- <button pbutton pripple icon="pi pi-upload" (click)="dt.exportCSV()" class=" p-element p-ripple rounded-circle mx-3 p-button p-component p-button-icon-only">
+                <span class="p-button-icon pi pi-upload" aria-hidden="true"></span>
+                <span class="p-ink" aria-hidden="true" role="presentation"></span>
+            </button> -->
         </div>
 
     </div>
@@ -27,6 +31,7 @@
             [tableStyle]="{'min-width': '50rem'}" 
             [paginator]="true" 
             [rows]="6" 
+            [exportFilename]="'CRM4U'"
             selectionMode="multiple"
             [showCurrentPageReport]="true"
             currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} páginas" 
@@ -70,9 +75,9 @@
                 <td>{{item.Unidade}}</td>
                 <td>{{item.ApiKey}}</td>
                 <td>{{item.ApiPassword}}</td>
-                <td>
-                    <button  label="Copiar Chave" icon="pi pi-copy"  pButton class="btn-cancel" (click)="CopyToClipboard(item.ApiKey)" ></button>
-                    <button label="Excluir" [routerLink]="['excluir',item.Id]" pButton class="btn-clear"></button>
+                <td style="padding: 12px 12px 12px 0;">
+                    <button  icon="pi pi-copy"  pButton class="btn-cancel" (click)="CopyToClipboard(item)" ></button>
+                    <button  icon="pi pi-trash" [routerLink]="['excluir',item.Id]" pButton class="btn-clear"></button>
                 </td>
                
               </tr>
