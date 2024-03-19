@@ -1,4 +1,5 @@
 @import url('../../../assets/css/button.css');
+@import "~bootstrap/dist/css/bootstrap.css";
 
 :host ::ng-deep .btn-cancel{
     font-size: 11pt;
@@ -14,6 +15,14 @@
     flex-wrap: wrap;
 }
 
-:host ::ng-deep .table td{
-    padding: 8px;
+:host ::ng-deep .table td,th{
+    padding: 12px 30px;
+}
+
+:host ::ng-deep .p-datatable-header{
+    background-color: inherit;
+}
+
+:host ::ng-deep .p-datatable-header .button-holder{
+ background-color: inherit;
 }

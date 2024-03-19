@@ -1,9 +1,24 @@
 
-<p-tabView>
-    <p-tabPanel header="CRM4U">
-        <div class="card table-responsive">
+
+<div class="table-responsive p-1">
+    <div class="d-flex flex-row  md:flex-row md:align-items-start md:justify-content-between mb-3">
+        <div class="p-2 flex-grow-1 fs-4 fw-semibold text-start position-relative mt-3  ms-3 ">CRM4U</div>
+        <div class="p-2 d-flex justify-content-end inline-flex mt-2 mr-3">
+            <span class="p-input-icon-left flex-auto">
+                <i class="pi pi-search"></i>
+                <input pinputtext type="text" placeholder="Search" class="p-inputtext p-component p-element w-full"
+                    style="border-radius: 2rem;" (input)="applyFilterGlobal($event, 'contains')">
+            </span>
+            <button pbutton pripple icon="pi pi-upload" (click)="dt.exportCSV()" class=" p-element p-ripple rounded-circle mx-3 p-button p-component p-button-icon-only">
+                <span class="p-button-icon pi pi-upload" aria-hidden="true"></span>
+                <span class="p-ink" aria-hidden="true" role="presentation"></span>
+            </button>
+        </div>
+
+    </div>
             <p-table 
             #dt 
+            [columns]="cols"
             class="table" 
             [value]="list" 
             sortField="" 
@@ -11,35 +26,41 @@
             styleClass="p-datatable-striped"
             [tableStyle]="{'min-width': '50rem'}" 
             [paginator]="true" 
-            [rows]="5" 
+            [rows]="6" 
+            selectionMode="multiple"
             [showCurrentPageReport]="true"
             currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} páginas" 
             [filterDelay]="0"
-            [globalFilterFields]="['id','Agencia', 'Unidade', 'ApiKey', 'ApiPassword']">
+            [globalFilterFields]="['Id','Agencia', 'Unidade', 'ApiKey', 'ApiPassword']">
             <ng-template pTemplate="caption">
-                <div>
+                <div class="button-holder">
                     <button label="Cadastrar" [routerLink]="['cadastrar']" pButton  class="btn-clear"></button>
                 </div>
              </ng-template>
             <ng-template pTemplate="header">
                 <tr>
-                    <th pSortableColumn="id" class="id">
+                    <th pSortableColumn="Id" class="Id">
                         Id
+                        <p-sortIcon field="Id"></p-sortIcon>
                     </th>
                     <th pSortableColumn="Agencia" class="Agencia">
                         Agência
+                        <p-sortIcon field="Agencia"></p-sortIcon>
                     </th>
                     <th pSortableColumn="Unidade" class="Unidade">
                         Unidade
+                        <p-sortIcon field="Unidade"></p-sortIcon>
                     </th>
                     <th pSortableColumn="ApiKey" class="ApiKey">
                         ApiKey
+                        <p-sortIcon field="ApiKey"></p-sortIcon>
                     </th>
                     <th pSortableColumn="ApiPassword" class="ApiPassword">
                         ApiPassword
+                        <p-sortIcon field="Api"></p-sortIcon>
                     </th>
                     <th></th>
-                    <th></th>
+                   
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-item>
@@ -50,18 +71,16 @@
                 <td>{{item.ApiKey}}</td>
                 <td>{{item.ApiPassword}}</td>
                 <td>
-                    <button></button>
                     <button  label="Copiar Chave" icon="pi pi-copy"  pButton class="btn-cancel" (click)="CopyToClipboard(item.ApiKey)" ></button>
-                </td>
-                <td>
                     <button label="Excluir" [routerLink]="['excluir',item.Id]" pButton class="btn-clear"></button>
                 </td>
+               
               </tr>
             </ng-template>
         </p-table>
         </div>
-    </p-tabPanel>
-</p-tabView>
+   
+
 
 
 

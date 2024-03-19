@@ -16,6 +16,15 @@ export class ListComponent {
   erro = '';
   @ViewChild('dt') dt!: Table;
 
+  cols: any[] = [
+    {field: 'Id'},
+    {field: 'Agencia'},
+    {field: 'Unidade'},
+    {field: 'ApiKey'},
+    {field: 'ApiPassword'},
+  
+];
+
   constructor(
     private listService: ListService,
     private toastr: ToastrService,
@@ -43,4 +52,11 @@ export class ListComponent {
     // document.execCommand('copy');
     // document.body.removeChild(textArea);
   }
+
+    // Função para filtrar a tabela a partir do input
+    applyFilterGlobal(event: any, filterType: string) {
+      this.dt.filterGlobal((event.target as HTMLInputElement).value, filterType);
+    }
+
+    
 }
