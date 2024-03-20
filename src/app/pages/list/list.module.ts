@@ -16,6 +16,7 @@ import { ToastrModule } from "ngx-toastr";
 import { DeleteComponent } from "./delete/delete.component";
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { CreateConfirmComponent } from "./create-confirm/create-confirm.component";
+import { RippleModule } from 'primeng/ripple';
 
 
 @NgModule ({
@@ -39,7 +40,8 @@ import { CreateConfirmComponent } from "./create-confirm/create-confirm.componen
         FormsModule, 
         DropdownModule,
         ToastrModule,
-        ProgressSpinnerModule
+        ProgressSpinnerModule,
+        RippleModule
       
         
       

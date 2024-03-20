@@ -2,9 +2,9 @@
 <div class="d-flex align-items-center bg-body-tertiary vh-100 w-100">
  
     <div class="container min-vh-100 d-flex justify-content-center align-items-center ">
-        <form class="w-50">
+        <form class="mw-100" style="width: 350px;">
             
-            <p class="h3 mb-3 text-body-secondary text-center fw-normal "> Login</p>
+            <p class="h3 mb-3 text-body-secondary text-center fw-normal">Login</p>
 
             <div class="form-floating">
                 <input 
@@ -14,25 +14,25 @@
             </div>
             <div class="form-floating">
                 <input 
-                    type="password" 
+                    [type]="showHide.value ? 'password' : 'text'"
                     name="password"
                     class="form-control"
-                     id="floatingPassword" 
-                     placeholder="Password"
-                     #password="ngModel"
-                     (ngModel)="login.password">
+                    id="floatingPassword" 
+                    placeholder="Password"
+                    #password="ngModel"
+                    (ngModel)="login.password">
                 <label for="floatingPassword">Password</label>
             </div>
 
-            <div class="form-check text-start my-3">
-                <div class="d-flex align-items-center">
+            <div class="form-check text-start my-3 ">
+                <div class="d-flex align-items-center ms-0">
                     <input type="checkbox"
                            name="showHide"
                            id="showHide"
                            #showHide="ngModel"
                            ngModel
                            [value]="true">
-                    <label for="showHide" class="ml-2">
+                    <label for="showHide" class="ml-2 mt-2">
                         <span *ngIf="showHide.value">Exibir</span>
                         <span *ngIf="!showHide.value">Esconder</span> senha </label>
                 </div>

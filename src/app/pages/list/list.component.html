@@ -9,8 +9,8 @@
                 <input pinputtext type="text" placeholder="Search" class="p-inputtext p-component p-element w-full"
                     style="border-radius: 2rem;" (input)="applyFilterGlobal($event, 'contains')">
             </span>
-            <button pbutton pripple icon="pi pi-upload" (click)="exportExcel()" pTooltip="XLS" class=" p-element p-ripple rounded-circle mx-3 p-button p-component p-button-icon-only">
-                <span class="p-button-icon pi pi-upload" aria-hidden="true"></span>
+            <button pbutton pRipple icon="pi pi-power-off" class="p-element btn-off shadow-2 p-ripple">
+                <span class="p-button-icon pi pi-power-off" aria-hidden="true"></span>
                 <span class="p-ink" aria-hidden="true" role="presentation"></span>
             </button>
             <!-- <button pbutton pripple icon="pi pi-upload" (click)="dt.exportCSV()" class=" p-element p-ripple rounded-circle mx-3 p-button p-component p-button-icon-only">
@@ -38,8 +38,18 @@
             [filterDelay]="0"
             [globalFilterFields]="['Id','Agencia', 'Unidade', 'ApiKey', 'ApiPassword']">
             <ng-template pTemplate="caption">
-                <div class="button-holder">
-                    <button label="Cadastrar" [routerLink]="['cadastrar']" pButton  class="btn-clear"></button>
+                <div class="button-holder d-flex justify-content-space-around mw-100">
+                    <button 
+                        pRipple 
+                        label="Cadastrar" 
+                        [routerLink]="['cadastrar']" 
+                        pButton  
+                        class="p-element p-ripple p-button p-component btn-clear me-auto p-2 ms-0 mt-0 shadow-2">
+                    </button>
+                    <button pbutton pRipple icon="pi pi-upload" (click)="exportExcel()" pTooltip="XLS" class="p-element p-ripple mx-3 p-button btn-cancel p-component p-button-icon-only shadow-2 btn-lg">
+                        <span class="p-button-icon pi pi-upload" aria-hidden="true"></span>
+                        <span class="p-ink" aria-hidden="true" role="presentation"></span>
+                    </button>
                 </div>
              </ng-template>
             <ng-template pTemplate="header">
@@ -76,8 +86,8 @@
                 <td>{{item.ApiKey}}</td>
                 <td>{{item.ApiPassword}}</td>
                 <td style="padding: 12px 12px 12px 0;">
-                    <button  icon="pi pi-copy"  pButton class="btn-cancel" (click)="CopyToClipboard(item)" ></button>
-                    <button  icon="pi pi-trash" [routerLink]="['excluir',item.Id]" pButton class="btn-clear"></button>
+                    <button pRipple icon="pi pi-copy" pButton class="p-element btn-cancel shadow-2 p-ripple" (click)="CopyToClipboard(item)"></button>
+                    <button pRipple icon="pi pi-trash" pButton class="p-element btn-clear shadow-2 p-ripple" [routerLink]="['excluir',item.Id]"></button>
                 </td>
                
               </tr>
